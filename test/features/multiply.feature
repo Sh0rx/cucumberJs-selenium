@@ -1,31 +1,22 @@
 Feature: 7 times table
 
-    Verify multiplying 7 by 1 to 10 returns right answer
-
-    # Scenario: Multiply 7 times table
-    #     Given I open "https://testpages.herokuapp.com/styled/calculator"
-    #     When I multiply 7 times <number>
-    #     Then the answer should be <result>
-
-    #     Examples:
-    #         | number | result |
-    #         | 1      | 7      |
+    Verify multiplying 7 by 1-10 returns right answer
 
     Scenario Outline: Multiply 7 times table
         Given I open "https://testpages.herokuapp.com/styled/calculator"
-        When I multiply 7 times <number>
+        When I multiply <number1> times <number2>
         Then the answer should be <result>
 
         Examples:
-            | number | result |
-            | 0      | 0      |
-            | 1      | 7      |
-            | 2      | 14     |
-            | 3      | 21     |
-            | 4      | 28     |
-            | 5      | 35     |
-            | 6      | 42     |
-            | 7      | 49     |
-            | 8      | 56     |
-            | 9      | 63     |
-            | 10     | 70     |
+            | number1 | number2 | result |
+            | 7       | 0       | 0      |
+            | 7       | 1       | 7      |
+            | 7       | 2       | 14     |
+            | 7       | 3       | 21     |
+            | 7       | 4       | 28     |
+            | 7       | 5       | 35     |
+            | 7       | 6       | 42     |
+            | 7       | 7       | 49     |
+            | 7       | 8       | 56     |
+            | 7       | 9       | 63     |
+            | 7       | 10      | 70     |
