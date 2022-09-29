@@ -1,11 +1,9 @@
 const { Given, When, Then, BeforeAll, Before, After, AfterAll } = require('@cucumber/cucumber');
-const assert = require('assert');
-const { By, Key, Builder } = require("selenium-webdriver");
 require('chromedriver');
+const assert = require('assert');
+const { TIMEOUT } = require('dns');
 
-const calculatorPage = require('../../pageobjects/calculator.page');
-
-let driver;
+const calculatorPage = require('../../pageobjects/calculatorpage');
 
 BeforeAll(async () => {
     console.log("Inside BeforeAll");
@@ -22,11 +20,11 @@ After(function () {
 
 AfterAll(async () => {
     console.log("Inside AfterAll");
-    // await driver.quit();
+    calculatorPage.closeBrowser();
 });
 
 Given('I open {string}', async (webpageURL) => {
-    await calculatorPage.open(webpageURL);
+    await calculatorPage.openPage(webpageURL);
 });
 
 When('I multiply {int} times {int}', async (num1, num2) => {
@@ -37,12 +35,8 @@ When('I multiply {int} times {int}', async (num1, num2) => {
     await calculatorPage.clickTimesOption();                //Click 'times' option 
 
     await calculatorPage.clickCalculateButton();            //Click 'calculate' button
-    
 });
 
 Then('the answer should be {int}', async (expectedResult) => {
-    // let actualResult = await driver.findElement(By.id("answer")).getText();    //Get answer
-    // assert.equal(actualResult, expectedResult);
-    
     await calculatorPage.validateResult(expectedResult);
 });
