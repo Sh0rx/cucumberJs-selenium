@@ -1,4 +1,4 @@
-const { By, Key, Builder } = require("selenium-webdriver");
+const { By, Key, Builder, until } = require("selenium-webdriver");
 const BasePage = require('./basepage');
 const assert = require('assert');
 
@@ -71,6 +71,9 @@ class CalculatorPage extends BasePage {
             actualResult = await driver.findElement(selectorResult).getText();
             console.log('FINAL RESULT FINAL: ' + actualResult);
         }
+
+        // actualResultElement = await driver.wait(until.elementLocated(selectorResult), 30000, 'Timed out after 30 seconds', 5000);
+        // actualResult = await actualResultElement.getText();
 
         assert.equal(actualResult, expectedResult);
 

@@ -7,7 +7,7 @@ var driver = new webdriver.Builder().forBrowser('chrome').build();
 class BasePage {
 
     constructor() {
-        global.driver = driver;
+        globalThis.driver = driver;
     }
 
     async openPage(webpageURL) {

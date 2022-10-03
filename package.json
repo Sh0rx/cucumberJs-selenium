@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js -f @cucumber/pretty-formatter ./test/features/multiply.feature"
+    "test": "cucumber-js -f @cucumber/pretty-formatter ./test/features/multiply.feature ./test/features/login.feature  --require ./test/features/step_definition/*.js"
   },
   "keywords": [],
   "author": "",
